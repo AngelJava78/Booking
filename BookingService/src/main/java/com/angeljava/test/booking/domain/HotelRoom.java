@@ -14,12 +14,12 @@ import lombok.Data;
 @Table(name = "hotel_room")
 public class HotelRoom {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
-	
+
 	private Long externalId;
-	
+
 	private Date checkInTime;
 
 	private Date checkOutTime;
@@ -27,6 +27,6 @@ public class HotelRoom {
 	private String roomType;
 
 	private float price;
-	
+
 	private String status;
 }

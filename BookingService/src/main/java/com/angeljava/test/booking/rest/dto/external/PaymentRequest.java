@@ -6,7 +6,7 @@ import lombok.Data;
 public class PaymentRequest {
 
 	private String cardNumber;
-	
+
 	private String paymentMethod;
 
 	private float amount;

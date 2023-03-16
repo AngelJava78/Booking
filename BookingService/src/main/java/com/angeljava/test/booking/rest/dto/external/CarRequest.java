@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 public class CarRequest {
 
-    private String modelName;
+	private String modelName;
 
-    private Date pickUpDate;
+	private Date pickUpDate;
 
-    private Date returnDate;
+	private Date returnDate;
 
-    private float price;
+	private float price;
 }

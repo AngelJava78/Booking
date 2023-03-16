@@ -15,8 +15,8 @@ import lombok.Data;
 @Table(name = "flight")
 public class Flight {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	private Long externalId;
@@ -28,6 +28,6 @@ public class Flight {
 	private String seatClass;
 
 	private float price;
-	
+
 	private String status;
 }

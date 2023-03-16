@@ -40,12 +40,11 @@ public class BookingService {
 
 	@Value("${payment.service.address:http://localhost:8085}")
 	private String paymentServiceUrl;
-	
+
 	@Autowired
 	private BookingRepository bookingRepository;
 
 	private final RestTemplate restTemplate = new RestTemplate();
-	
 
 	@Transactional
 	public BookingResponse createBooking(BookingRequest request) {
@@ -147,17 +146,17 @@ public class BookingService {
 		savedBooking = bookingRepository.saveAndFlush(booking);
 
 		bookingRepository.saveAndFlush(booking);
-		 try {
-		PaymentRequest paymentRequest = request.getPayment();
-		paymentRequest.setAmount(total);
-		PaymentResponse paymentServiceResponse = restTemplate
-				.postForEntity(paymentServiceUrl + "/payment", paymentRequest, PaymentResponse.class).getBody();
-		// bookingResponse.setCar(carServiceResponse);
-		log.info("Receiving response from payment service: {}", paymentServiceResponse);
-		payment.setExternalId(paymentServiceResponse.getId());
-		payment.setStatus("COMMIT");
-		payment.setConfirmado(paymentServiceResponse.isConfirmado());
-		booking.setPayment(payment);
+		try {
+			PaymentRequest paymentRequest = request.getPayment();
+			paymentRequest.setAmount(total);
+			PaymentResponse paymentServiceResponse = restTemplate
+					.postForEntity(paymentServiceUrl + "/payment", paymentRequest, PaymentResponse.class).getBody();
+			// bookingResponse.setCar(carServiceResponse);
+			log.info("Receiving response from payment service: {}", paymentServiceResponse);
+			payment.setExternalId(paymentServiceResponse.getId());
+			payment.setStatus("COMMIT");
+			payment.setConfirmado(paymentServiceResponse.isConfirmado());
+			booking.setPayment(payment);
 		} catch (Exception ex) {
 			log.info(ex.getLocalizedMessage());
 			log.info(ex.getMessage());
@@ -283,6 +282,4 @@ public class BookingService {
 
 	}
 
-	
-	
 }

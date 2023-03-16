@@ -17,30 +17,30 @@ import lombok.Data;
 public class Booking {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
-	
+
 	private String status;
 
 	private float total;
 
 	private String userId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "carId", referencedColumnName = "id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "carId", referencedColumnName = "id")
 	private Car car;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "flightId", referencedColumnName = "id") 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "flightId", referencedColumnName = "id")
 	private Flight flight;
-	
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotelRoomId", referencedColumnName = "id")
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "hotelRoomId", referencedColumnName = "id")
 	private HotelRoom hotelRoom;
-	
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paymentId", referencedColumnName = "id") 
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "paymentId", referencedColumnName = "id")
 	private Payment payment;
 
 }

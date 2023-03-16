@@ -27,14 +27,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect 
     #database-platform: org.hibernate.dialect.MySQLDialect    
     
-obp:
-  ms:
-    name: booking-micro
-    domain: booking
-    version: ^project.version^
-  transaction-manager:
-    kafka:
-      brokers: localhost:29092
-    commit-timeout: 30000
-    transaction-expiration-seconds: 300    
-    

@@ -8,15 +8,15 @@ public class CarResponse {
 	private Long id;
 
 	private Long externalId;
-	
-    private String modelName;
 
-    private Date pickUpDate;
+	private String modelName;
 
-    private Date returnDate;
+	private Date pickUpDate;
 
-    private float price;
-    
+	private Date returnDate;
+
+	private float price;
+
 	private String status;
 
 	private String serialNumber;
